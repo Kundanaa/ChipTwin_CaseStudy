@@ -1,0 +1,1 @@
+/Users/manojkumar/esp32_uart_sim/esp/esp-idf/components/mbedtls/mbedtls/library/error.c

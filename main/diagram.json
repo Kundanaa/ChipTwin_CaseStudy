@@ -1,0 +1,11 @@
+{
+    "version": 1,
+    "author": "Embedded Engineer",
+    "parts": [
+    { "type": "esp32", "id": "esp32-tx", "uartReceivePin": "gpio3" },
+    { "type": "esp32", "id": "esp32-rx", "uartTransmitPin": "gpio3" }
+    ],
+    "connections": [
+    ["esp32-tx:gpio1", "esp32-rx:gpio3", "uart"]
+    ]
+}

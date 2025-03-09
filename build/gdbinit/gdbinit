@@ -1,0 +1,2 @@
+source /Users/manojkumar/esp32_uart_sim/build/gdbinit/symbols
+source /Users/manojkumar/esp32_uart_sim/build/gdbinit/connect

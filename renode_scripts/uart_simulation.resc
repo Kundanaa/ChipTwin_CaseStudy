@@ -1,0 +1,25 @@
+using sysbus
+
+# Define first ESP32 node
+machine1: Machine.Sifive.Esp32_Wrover_KIT
+machine LoadPlatformDescription @platforms/cpus/esp32.repl
+connector Connect sysbus.uart2 machine1.uart
+
+# Define second ESP32 node
+machine2: Machine.Sifive.Esp32_Wrover_KIT
+connector Connect sysbus.uart2 machine2.uart
+
+# Cross-connect UART2 ports
+machine1.uart2.rx -> machine2.uart2.tx
+machine2.uart2.rx -> machine1.uart2.tx
+
+# Load firmware images
+machine1 LoadELF "build/esp32_uart_sim.elf"
+machine2 LoadELF "build/esp32_uart_sim.elf"
+
+# Start monitoring
+showAnalyzer machine1.uart2
+showAnalyzer machine2.uart2
+
+# Begin simulation
+start
