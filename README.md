@@ -222,13 +222,6 @@ Received: TEMP:30.12
 
 This task demonstrated how to simulate complex embedded systems on macOS using Docker and Renode despite platform constraints. The final setup achieved accurate simulation of ESP32-to-ESP32 communication via UART.
 
----
-
-## **Future Recommendations**
-
-1. Explore native Renode installations for macOS to avoid Docker overhead.
-2. Use lightweight tools like Wokwi for quick prototyping if simulation accuracy is not critical.
-3. Consider testing on physical hardware for real-world validation.
 
 ---
 
