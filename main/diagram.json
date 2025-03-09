@@ -1,11 +1,34 @@
 {
-    "version": 1,
-    "author": "Embedded Engineer",
-    "parts": [
-    { "type": "esp32", "id": "esp32-tx", "uartReceivePin": "gpio3" },
-    { "type": "esp32", "id": "esp32-rx", "uartTransmitPin": "gpio3" }
-    ],
-    "connections": [
-    ["esp32-tx:gpio1", "esp32-rx:gpio3", "uart"]
-    ]
+  "version": 1,
+  "author": "Kundanaa Pilla",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "id": "esp32-tx",
+      "type": "board-esp32-devkit-c-v4",
+      "firmware": "transmitter.c",
+      "uartReceivePin": "gpio3"
+    },
+    {
+      "id": "esp32-rx",
+      "type": "board-esp32-devkit-c-v4",
+      "firmware": "receiver.c",
+      "uartTransmitPin": "gpio3"
+    },
+    {
+      "type": "wokwi-serial-monitor",
+      "id": "monitor-tx",
+      "port": 1
+    },
+    {
+      "type": "wokwi-serial-monitor",
+      "id": "monitor-rx",
+      "port": 2
+    }
+  ],
+  "connections": [
+    ["esp32-tx:gpio1", "esp32-rx:gpio3", "uart"],
+    ["esp32-tx:gpio0", "monitor-tx:RX", ""],
+    ["esp32-rx:gpio0", "monitor-rx:RX", ""]
+  ]
 }
